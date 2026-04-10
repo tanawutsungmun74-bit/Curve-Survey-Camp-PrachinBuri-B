@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curve Design Professional - Civil Engineering</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="login-page" class="login-wrapper">
+        <div class="login-box">
+            <div class="profile-header">
+                <img src="https://cdn.phototourl.com/free/2026-04-10-3157b76c-d367-4a99-8df1-df489865a3ff.jpg" alt="Profile Image" class="profile-img">
+            </div>
+            <h2>Survey Camp PrachinBuri B</h2>
+            <p>ระบบคำนวณออกแบบโค้งราบ</p>x
+            <div class="login-form">
+                <input type="password" id="password" placeholder="รหัสผ่าน (surveyb)">
+                <button onclick="login()" class="btn-login">เข้าสู่ระบบ</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-page" style="display:none;" class="dashboard-container">
+        <header class="header-banner">
+            <h1>Simple Curve Calculator</h1>
+            <p>ออกแบบและคำนวณค่าต่างๆ ของโค้งราบทางวิศวกรรม</p>
+        </header>
+
+        <div class="main-layout">
+            <aside class="card input-panel">
+                <h3>📝 ป้อนข้อมูลกำหนด</h3>
+                <div class="field">
+                    <label>องศาความโค้ง (D)</label>
+                    <input type="number" id="input-D" value="70">
+                </div>
+                <div class="field">
+                    <label>ระยะคอร์ดมาตรฐาน (a)</label>
+                    <input type="number" id="input-a" value="25">
+                </div>
+                <div class="field">
+                    <label>จุด PI (Station)</label>
+                    <div class="sta-inputs">
+                        <input type="number" id="pi-km" value="8"> + <input type="number" id="pi-m" value="950">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>มุมเห (Δ)</label>
+                    <div class="dms-inputs">
+                        <input type="number" id="deg" placeholder="°">
+                        <input type="number" id="min" placeholder="'">
+                        <input type="number" id="sec" placeholder="''">
+                    </div>
+                </div>
+                <button onclick="calculateCurve()" class="btn-run">เริ่มประมวลผล</button>
+            </aside>
+
+            <main id="results-area" style="display:none;">
+                <section class="card summary-card">
+                    <h3>🔍 รายการคำนวณละเอียด</h3>
+                    <div id="calc-summary-content" class="calc-grid"></div>
+                </section>
+
+                <section class="card table-card">
+                    <h3>📊 ตารางผลลัพธ์การวางโค้ง</h3>
+                    <div class="table-container">
+                        <table id="table-deflection">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <th>Subarc (a)</th>
+                                    <th>d/2 (DMS)</th>
+                                    <th>Σ d/2 (DMS)</th>
+                                    <th>Subchord (c)</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
